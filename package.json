@@ -1,0 +1,15 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "backend coderhouse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristian Guerrero",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "node": "^18.10.0"
+  }
+}
