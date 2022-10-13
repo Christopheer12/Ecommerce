@@ -1,22 +1,19 @@
 const express = require('express')
-const http = require('http')
-const app = express
+
 const PORT = process.env.PORT || 8080
+const app = express();
 const {herramientaFechas}= require('./utils/herramientaFechas')
 
 
 
-
-//! createServer
-const server = http.createServer((request,response)=>{
-    response.write(herramientaFechas.hora)
-    response.write(herramientaFechas.fecha)
-    response.end()   
-
-})
-
 //! listen
 
-const connectedServer = server.listen(PORT,()=>{
+const connectedServer = app.listen(PORT,()=>{
     console.log(`servidor activo en ${PORT}`)
+    console.log(`se conecto un usuario al puerto ${PORT} a las ${herramientaFechas.hora} del dia ${herramientaFechas.fecha}`)
+})
+
+
+connectedServer.on('error',(error)=>{
+    console.log(error.message)
 })
