@@ -1,6 +1,7 @@
 const express = require("express")
 const PORT = process.env.PORT || 8080;
 const app = express();
+const fs = require('fs')
 const { herramientaFechas } = require("./utils/herramientaFechas");
 const noEncontrado = 404;
 const { productos } = require("./model/productos");
@@ -12,8 +13,12 @@ app.get("/", (req, res) => {
     `biemvenido a la pagina, son las ${herramientaFechas.hora} del dia ${herramientaFechas.fecha}`
   );
 });
+//!Middlewares (se ponen antes de las rutas)
+
+app.use(express.json());
 
 
+//!rutas
 app.get("/productos", (req, res, next) => {
   console.log(req.query);
   const { precio = 9999 } = req.query;
@@ -23,6 +28,22 @@ app.get("/productos", (req, res, next) => {
   );
   res.json(respuestaProductos);
 });
+app.post("/productos", (req,res)=>{
+  const{  nombreProducto, imagen, lanzamiento, plataformas, ordenConologico, precio}= req.body;
+  const nuevoProducto = {
+    id: productos.length +1,
+    nombreProducto, 
+    imagen, 
+    lanzamiento, 
+    plataformas, 
+    ordenConologico, 
+    precio
+  }
+  productos.push(nuevoProducto)
+  fs.writeFileSync('./model/productos',JSON.stringify(productos,null,2))
+  res.send("Juego recibido y procesado")
+  res.json(nuevoProducto)
+})
 
 app.get("/carrito", (req, res) => {
   res.send("<h1>carrito</h1>");
@@ -33,6 +54,8 @@ app.get("/secret", (req, res) => {
 app.get("*", (req, res) => {
   res.status(noEncontrado).send(`${noEncontrado} pagina no existe`);
 });
+
+
 
 //! listen
 
