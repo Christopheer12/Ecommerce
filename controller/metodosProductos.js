@@ -1,57 +1,63 @@
-const { productos } = require("../model/productos");
+const fs = require('fs')
+const path = require('path')
+
+
+const  productos  = require("../model/productos");
 
 class Productos {
-  static lastProductoId = productos[productos.length - 1].id;
+  static ultimoProductoId = productos[productos.length - 1].id;
 
   constructor() {
     this.lista = productos;
   }
 
-  getAll() {
+  obtenerTodos() {
     return this.lista;
   }
 
-  getById(productoId) {
+  obtenerPorId(productoId) {
     return this.lista.find((producto) => producto.id === +productoId);
   }
-  save(producto) {
-    const { nombreProducto, price, imagen, lanzamiento, plataformas,ordenConologico, precio } = producto;
-    if (!nombreProducto || !price || !imagen || !lanzamiento || !plataformas || !ordenConologico || !precio) {
+  guardar(producto) {
+    const { nombreProducto, imagen, lanzamiento, plataformas,ordenConologico, precio } = producto;
+    if (!nombreProducto || !imagen || !lanzamiento || !plataformas || !ordenConologico || !precio) {
       return null;
     }
-    Productos.lastProductoId++;
-    const newProducto = {
-      id: Productos.lastProductoId,
+    Productos.ultimoProductoId++;
+    const nuevoProducto = {
+      id: Productos.ultimoProductoId,
       nombreProducto,
       imagen,
       plataformas,
       ordenConologico,
       precio,
     };
-    this.lista.push(newProducto);
-    return newProducto;
+    this.lista.push(nuevoProducto);
+    /* fs.writeFileSync('./model/productos'(productos,null,2)) */
+    return nuevoProducto;
   }
-  updateById(productoId, producto) {
+
+
+  actualizarPorId(productoId, producto) {
     const productoIndex = this.lista.findIndex(
       (producto) => producto.id === +productoId
     );
     if (productoIndex < 0) return null;
-    const { nombreProducto, price, imagen, lanzamiento, plataformas,ordenConologico, precio } = producto;
-    const updateProducto = {
+    const { nombreProducto, imagen, lanzamiento, plataformas,ordenConologico, precio } = producto;
+    const actualizarProducto = {
       id: this.lista[productoIndex].id,
       nombreProducto, 
-      price, 
       imagen, 
       lanzamiento, 
       plataformas,
       ordenConologico, 
       precio,
     };
-    this.lista[productoIndex] = updateProducto;
-    return updateProducto;
+    this.lista[productoIndex] = actualizarProducto;
+    return actualizarProducto;
   }
 
-  deleteById(productoId) {
+  eliminarPorId(productoId) {
     const productoIndex = this.lista.findIndex(
       (producto) => producto.id === +productoId
     );
