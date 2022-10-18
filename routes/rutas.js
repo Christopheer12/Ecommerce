@@ -6,7 +6,7 @@ const carritoRutas = require('./carrito/carrito.rutas');
 const router = express.Router();
 
 router.use('/productos',productosRutas);
- router.use('/carrito', carritoRutas); 
+router.use('/carrito', carritoRutas); 
 
 
 

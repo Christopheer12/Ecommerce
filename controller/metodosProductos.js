@@ -5,7 +5,6 @@ const path = require('path')
 const  productos  = require("../model/productos");
 
 class Productos {
-  static ultimoProductoId = productos[productos.length - 1].id;
 
   constructor() {
     this.lista = productos;
