@@ -1,7 +1,1 @@
-https://coderhouse.zoom.us/rec/play/7f1yMF3u6l0Rs7MPcmAisjxCWNfd_K9Jy_OvlH_pAxr91_iwT_wWSPso3W0MIm3Z_wBhagz3LR9j8cti.E6e1-UrquNXreoeJ?continueMode=true&_x_zm_rtaid=5EHpf1iURzqx7W63HoN0CQ.1665693745082.e1b15685a7ccdd0249c97f0599d9cb84&_x_zm_rhtaid=78
-1:42
-
-https://coderhouse.zoom.us/rec/play/IRtKndxGJPYFRnHVO7R3pDLNEy5dMGuoG9UGemNdALrmiBy6fDrR6JSrVeAaosduwcLMI5JD10ry3NL7.X5SN6pSq8QCKZ43P?continueMode=true&_x_zm_rtaid=QU1LockjT1GgaTTV1aDdKQ.1665849883824.ccc74ca2e48ce98022e859885ae2e60e&_x_zm_rhtaid=434
-1:30
-
-0:51 repaso 2
+eliminar archivo escribir y borrar query
