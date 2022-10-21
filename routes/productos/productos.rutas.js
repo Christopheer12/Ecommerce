@@ -10,6 +10,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:productoId", (req, res) => {
+    const id = req.params.productoId;
+
 res.send(productos.obtenerPorId())
 });
 
