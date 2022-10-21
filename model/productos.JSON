@@ -34,29 +34,5 @@
     "plataformas": "Xbox One, Xbox, Xbox 360, Microsoft Windows",
     "ordenConologico": 2552,
     "precio": 12
-  },
-  {
-    "id": 5,
-    "nombreProducto": "Halo 3: ODST",
-    "imagen": "https://media.vandal.net/m/9230/200964203558_1.jpg",
-    "plataformas": "Xbox One, Xbox 360, Microsoft Windows",
-    "ordenConologico": 2552,
-    "precio": 15
-  },
-  {
-    "id": 6,
-    "nombreProducto": "Halo 3: ODST",
-    "imagen": "https://media.vandal.net/m/9230/200964203558_1.jpg",
-    "plataformas": "Xbox One, Xbox 360, Microsoft Windows",
-    "ordenConologico": 2552,
-    "precio": 15
-  },
-  {
-    "id": 7,
-    "nombreProducto": "Halo 3: ODST",
-    "imagen": "https://media.vandal.net/m/9230/200964203558_1.jpg",
-    "plataformas": "Xbox One, Xbox 360, Microsoft Windows",
-    "ordenConologico": 2552,
-    "precio": 15
   }
 ]

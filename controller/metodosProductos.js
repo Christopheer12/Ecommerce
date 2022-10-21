@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const  productos  = require("../model/productoss.json");
+const  productos  = require("../model/productos.json");
 
 class Productos {
 
@@ -31,7 +31,7 @@ class Productos {
       precio,
     };
     this.lista.push(nuevoProducto);
-fs.writeFileSync(path.join(__dirname,'../model/productoss.json'), JSON.stringify(this.lista,null,2));
+fs.writeFileSync(path.join(__dirname,'../model/productos.json'), JSON.stringify(this.lista,null,2));
 return nuevoProducto  
 }
 
