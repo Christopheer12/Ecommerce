@@ -14,7 +14,9 @@ res.send(productos.obtenerPorId())
 });
 
 router.post("/", (req, res) => {
-
+    const producto = req.body;
+    productos.guardar(producto);
+    console.log(`producto recibido y guardado`)
 });
 
 router.put("/:productoId", (req, res) => {
@@ -22,7 +24,8 @@ router.put("/:productoId", (req, res) => {
 });
 
 router.delete("/:productoId", (req, res) => {
-    res.send(productos.eliminarPorId())
+    const id = req.params.productoId;
+    productos.eliminarPorId(id);
 });
 
 
