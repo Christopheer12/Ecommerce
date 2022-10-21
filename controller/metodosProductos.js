@@ -58,7 +58,7 @@ return nuevoProducto
   eliminarPorId(productoId) {
     const productoActualizados = this.lista.filter((producto)=> producto.id !==+productoId)
     this.lista = productoActualizados;
-    fs.writeFileSync(path.join(__dirname,'../model/productoss.json'), JSON.stringify(this.lista,null,2));
+    fs.writeFileSync(path.join(__dirname,'../model/productos.json'), JSON.stringify(this.lista,null,2));
     return this.lista;
   }
 }

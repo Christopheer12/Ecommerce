@@ -10,15 +10,17 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:productoId", (req, res) => {
-    const id = req.params.productoId;
+    const {productoId} = req.params.productoId;
+    res.send(productos.obtenerPorId(productoId))
+    console.log(productoId)
 
 res.send(productos.obtenerPorId())
 });
 
 router.post("/", (req, res) => {
     const producto = req.body;
-    productos.guardar(producto);
-    console.log(`producto recibido y guardado`)
+    productos.guardar(producto)
+    res.send(`producto recibido y guardado`)
 });
 
 router.put("/:productoId", (req, res) => {
@@ -26,8 +28,8 @@ router.put("/:productoId", (req, res) => {
 });
 
 router.delete("/:productoId", (req, res) => {
-    const id = req.params.productoId;
-    productos.eliminarPorId(id);
+   /*  const id = req.params.productoId;
+    productos.eliminarPorId(id); */
 });
 
 
