@@ -1,11 +1,12 @@
 const express = require("express");
 const PORT = process.env.PORT || 8080;
+const cors = require('cors')
 const app = express();
 const { herramientaFechas } = require("./utils/herramientaFechas");
 const noEncontrado = 404;
 const rutas = require('./routes/rutas')
 
-
+app.use(cors())
 //!Middlewares (se ponen antes de las rutas)
 
 app.use(express.json());

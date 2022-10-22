@@ -26,6 +26,7 @@ class Productos {
       id: this.lista.length+1,
       nombreProducto,
       imagen,
+      lanzamiento,
       plataformas,
       ordenConologico,
       precio,
@@ -36,28 +37,32 @@ return nuevoProducto
 }
 
 
-  actualizarPorId(productoId, producto) {
-    const productoIndex = this.lista.findIndex(
-      (producto) => producto.id === +productoId
-    );
-    if (productoIndex < 0) return null;
+  actualizar (productoId, producto) {
     const { nombreProducto, imagen, lanzamiento, plataformas,ordenConologico, precio } = producto;
-    const actualizarProducto = {
-      id: this.lista[productoIndex].id,
-      nombreProducto, 
-      imagen, 
-      lanzamiento, 
+    if (!nombreProducto || !imagen || !lanzamiento || !plataformas || !ordenConologico || !precio) {
+      return null;
+    }
+    const productoActualizado = {
+      id: productoId,
+      nombreProducto,
+      imagen,
+      lanzamiento,
       plataformas,
-      ordenConologico, 
+      ordenConologico,
       precio,
     };
-    this.lista[productoIndex] = actualizarProducto;
-    return actualizarProducto;
-  }
+    const indice = this.lista.findIndex((producto) => producto.id === +productoId);
+    this.lista[indice] = productoActualizado;
+    fs.writeFileSync(path.join(__dirname,'../model/productos.json'), JSON.stringify(this.lista,null,2));
+    return productoActualizado;
+  } 
 
-  eliminarPorId(productoId) {
-    const productoActualizados = this.lista.filter((producto)=> producto.id !==+productoId)
-    this.lista = productoActualizados;
+
+
+
+  eliminar (productoId) {
+    // eliminar con filter
+    this.lista = this.lista.filter((producto) => producto.id !== +productoId);
     fs.writeFileSync(path.join(__dirname,'../model/productos.json'), JSON.stringify(this.lista,null,2));
     return this.lista;
   }

@@ -11,11 +11,14 @@ router.get("/", (req, res) => {
 
 router.get("/:productoId", (req, res) => {
     const {productoId} = req.params.productoId;
+    console.log(req.params)
     res.send(productos.obtenerPorId(productoId))
     console.log(productoId)
 
 res.send(productos.obtenerPorId())
 });
+
+
 
 router.post("/", (req, res) => {
     const producto = req.body;
@@ -24,13 +27,19 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:productoId", (req, res) => {
+    const producto = req.body;
+    const {productoId} = req.params;
+    productos.actualizar(productoId, producto)
+    res.send(`producto actualizado`)
 
 });
 
 router.delete("/:productoId", (req, res) => {
-   /*  const id = req.params.productoId;
-    productos.eliminarPorId(id); */
+    const {productoId} = req.params;
+    productos.eliminar(productoId)
+    res.send(`producto eliminado`)
 });
+
 
 
 module.exports = router;
